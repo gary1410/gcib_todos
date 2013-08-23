@@ -1,7 +1,7 @@
 require 'rake'
 require 'rspec/core/rake_task'
 require_relative 'config/application'
-require_relative 'lib/task_importer'
+# require_relative 'lib/task_importer'
 
 require_relative 'config/application'
 
@@ -39,6 +39,13 @@ end
 desc 'Start IRB with application environment loaded'
 task "console" do
   exec "irb -r./config/application"
+end
+
+
+desc "open sqlite3 in terminal"
+task "db:console" do
+  puts "opening sqlite3 #{DB_PATH}"
+  exec "sqlite3 #{DB_PATH}"
 end
 
 desc "Run the specs"
